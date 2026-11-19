@@ -17,15 +17,28 @@ endif()
 
 # Core project source files
 set(WAREHOUSE_CORE_SOURCES
-    src/domain/validation.cpp
+    # Sorting algorithms
+    src/algorithms/sorting/MergeSort.cpp
 
+    # Domain and I/O
+    src/domain/validation.cpp
     src/io/CsvLoader.cpp
 
+    # Existing algorithms
     src/algorithms/Graph.cpp
     src/algorithms/Dijkstra.cpp
     src/algorithms/WarehouseGraphBuilder.cpp
     src/algorithms/TaskPlanner.cpp
     src/algorithms/BranchAndBoundPlanner.cpp
+
+    # Dynamic Programming
+    src/algorithms/dp/Knapsack.cpp
+
+    # Optimal warehouse task planning
+    src/algorithms/OptimalTaskPlanner.cpp
+
+    # Bipartite matching
+    src/algorithms/matching/RobotTaskMatcher.cpp
 )
 
 # Core library
@@ -93,6 +106,18 @@ add_warehouse_test(
 add_warehouse_test(
     planner_comparison_test
     tests/planner_comparison_test.cpp
+)
+
+# Optimal task planner integration test
+add_warehouse_test(
+    optimal_task_planner_test
+    tests/optimal_task_planner_test.cpp
+)
+
+# Robot-task matching test
+add_warehouse_test(
+    robot_task_matcher_test
+    tests/RobotTaskMatcherTest.cpp
 )
 
 # Benchmark executable

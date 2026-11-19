@@ -27,6 +27,13 @@ public:
         const Graph& graph,
         const std::string& robotId
     );
+
+    // Selects tasks by priority under capacity, then optimizes their route.
+    static TaskPlan planOptimal(
+        const Warehouse& warehouse,
+        const Graph& graph,
+        const std::string& robotId
+    );
 };
 
 } // namespace warehouse
