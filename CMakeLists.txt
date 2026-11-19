@@ -39,6 +39,9 @@ set(WAREHOUSE_CORE_SOURCES
 
     # Bipartite matching
     src/algorithms/matching/RobotTaskMatcher.cpp
+
+    # Multi-robot task planning
+    src/algorithms/MultiRobotTaskPlanner.cpp
 )
 
 # Core library
@@ -118,6 +121,12 @@ add_warehouse_test(
 add_warehouse_test(
     robot_task_matcher_test
     tests/RobotTaskMatcherTest.cpp
+)
+
+# Multi-robot task planning test
+add_warehouse_test(
+    multi_robot_task_planner_test
+    tests/MultiRobotTaskPlannerTest.cpp
 )
 
 # Benchmark executable
